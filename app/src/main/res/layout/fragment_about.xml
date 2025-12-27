@@ -1,0 +1,145 @@
+<!--
+  ~     This file is part of "Beenama" formerly Movie DB. <https://github.com/Akar1881/MovieDB>
+  ~     forked from <https://notabug.org/nvb/MovieDB>
+  ~
+  ~     Copyright (C) 2024  Akar1881 <https://github.com/Akar1881>
+  ~
+  ~     Beenama is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Beenama is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with "Beenama".  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:background="@color/md_theme_surface"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/appIcon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_app_icon"
+        android:importantForAccessibility="no" />
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/app_name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingTop="8dp" />
+
+    <TextView
+        android:id="@+id/versionNumberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Version 1.0"
+        android:paddingTop="4dp" />
+
+    <TextView
+        android:id="@+id/update_available_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/update_available2"
+        android:textColor="?attr/colorPrimary"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:paddingTop="8dp" />
+
+    <TextView
+        android:id="@+id/app_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/author_beenama"
+        android:paddingTop="8dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/source_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            app:icon="@drawable/ic_sourcecode"
+            app:cornerRadius="10dp"
+            android:contentDescription="@string/source_code"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/licenseText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            app:icon="@drawable/ic_copyright"
+            app:cornerRadius="10dp"
+            android:contentDescription="@string/license"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/app_faq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            app:icon="@drawable/ic_help"
+            app:cornerRadius="10dp"
+            android:contentDescription="@string/faq"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/report_issue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            app:icon="@drawable/ic_bug_report"
+            app:cornerRadius="10dp"
+            android:contentDescription="@string/report_an_issue"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/shareIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cornerRadius="10dp"
+            app:icon="@drawable/ic_share"
+            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            android:contentDescription="@string/share"/>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/donate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/donate"
+        app:cornerRadius="10dp"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/privacyPolicyLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/privacy_policy"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        android:textColor="?attr/colorPrimary"
+        android:paddingTop="16dp" />
+</LinearLayout>

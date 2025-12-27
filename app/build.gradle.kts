@@ -1,0 +1,147 @@
+/*
+ *     This file is part of "Beenama" formerly Movie DB. <https://github.com/Akar1881/MovieDB>
+ *     forked from <https://notabug.org/nvb/MovieDB>
+ *
+ *     Copyright (C) 2024  Akar1881 <https://github.com/Akar1881>
+ *
+ *     Beenama is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     Beenama is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with "Beenama".  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+}
+
+val omdbApiKey = System.getenv("OMDB_API_KEY") ?: ""
+
+android {
+    namespace = "com.beenama.android"
+    compileSdk = 35
+
+    flavorDimensions.add("version")
+    productFlavors {
+        create("foss") {
+            dimension = "version"
+            applicationId = "com.beenama.android"
+        }
+        create("full") {
+            dimension = "version"
+            applicationId = "com.beenama.android.full"
+            versionNameSuffix = "-full"
+        }
+    }
+
+    defaultConfig {
+        applicationId = "com.beenama.android"
+        minSdk = 24
+        targetSdk = 35
+        versionCode = 32
+        versionName = "4.4.2"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "OMDB_API_KEY", "\"$omdbApiKey\"")
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            isDebuggable = false
+        }
+        getByName("debug") {
+            isMinifyEnabled = false
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+            isDebuggable = true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    packaging {
+        resources.excludes.add("META-INF/DEPENDENCIES")
+    }
+}
+
+tasks.register("printVersionName") {
+    doLast {
+        println(android.defaultConfig.versionName)
+    }
+}
+
+dependencies {
+
+    implementation("androidx.core:core-ktx:1.16.0")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("com.google.android.material:material:1.14.0-alpha06")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("com.google.code.gson:gson:2.13.1")
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
+    implementation("androidx.browser:browser:1.8.0")
+    implementation("androidx.palette:palette-ktx:1.0.0")
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
+    implementation("androidx.work:work-runtime:2.10.1")
+    implementation("androidx.preference:preference-ktx:1.2.1")
+    implementation("androidx.paging:paging-runtime:3.3.6")
+
+
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+
+    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.squareup.picasso:picasso:2.8")
+    implementation("com.squareup.okhttp3:okhttp:5.1.0")
+
+    //facebook shimmer
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
+
+    implementation("com.opencsv:opencsv:5.9")
+
+    implementation("io.noties.markwon:core:4.6.2")
+    implementation("io.noties.markwon:ext-tables:4.6.2")
+    implementation("io.noties.markwon:html:4.6.2")
+
+    //for Google Sign In
+    "fullImplementation"("com.google.android.gms:play-services-auth:21.3.0")
+    "fullImplementation"("com.google.apis:google-api-services-drive:v3-rev197-1.25.0")
+    "fullImplementation"("com.google.http-client:google-http-client-gson:1.47.0")
+    "fullImplementation"("androidx.credentials:credentials:1.5.0")
+    "fullImplementation"("androidx.credentials:credentials-play-services-auth:1.5.0")
+    "fullImplementation"("com.google.android.libraries.identity.googleid:googleid:1.1.1")
+    "fullImplementation"("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.10.2")
+
+    testImplementation ("junit:junit:4.13.2")
+    androidTestImplementation ("androidx.test.ext:junit:1.3.0")
+    androidTestImplementation ("androidx.test.espresso:espresso-core:3.7.0")
+}

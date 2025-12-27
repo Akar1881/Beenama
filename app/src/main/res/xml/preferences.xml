@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~     This file is part of "Beenama" formerly Movie DB. <https://github.com/Akar1881/MovieDB>
+  ~     forked from <https://notabug.org/nvb/MovieDB>
+  ~
+  ~     Copyright (C) 2024  Akar1881 <https://github.com/Akar1881>
+  ~
+  ~     Beenama is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Beenama is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with "Beenama".  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/title_general"
+        app:iconSpaceReserved="false">
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="key_show_cast"
+            android:title="@string/title_show_cast"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="key_show_crew"
+            android:title="@string/title_show_crew"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="key_show_similar_movies"
+            android:title="@string/title_show_recommendations"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="key_show_continue_watching"
+            android:summary="@string/show_the_continue_watching_chip_desc"
+            android:title="@string/quick_access_of_episodes_to_watch_next"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/title_behavior"
+        app:iconSpaceReserved="false">
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="key_show_save_dialog"
+            android:title="@string/title_show_save_dialog"
+            android:summary="@string/display_saved_dialog_summary"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="key_persistent_filtering"
+            android:summary="@string/summary_persistent_filtering"
+            android:title="@string/title_persistent_filtering"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/title_sync"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:key="sync_provider"
+            android:summary="@string/select_default_sync_provider"
+            app:iconSpaceReserved="false"
+            app:title="@string/sync_provider2" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="key_auto_sync_tkt_data"
+            android:summary="@string/get_tkt_data_summary"
+            android:title="@string/get_tkt_data"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="key_auto_update_episode_data"
+            android:summary="@string/get_episode_data_auto_summary"
+            android:title="@string/get_episode_data_auto"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/notification"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:key="key_request_notification_permission"
+            android:summary="@string/allow_permission_to_post_notifications"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:selectable="false"
+            android:summary="@string/summary_notification_one"
+            app:iconSpaceReserved="false"/>
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="key_get_notified_for_saved"
+            android:title="@string/get_notified_for_saved_movies"
+            android:summary="@string/summary_notification_two"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/title_show_representation"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:selectable="false"
+            android:summary="@string/summary_hide_tabs"
+            app:iconSpaceReserved="false"/>
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="key_show_shows_grid"
+            android:title="@string/title_shows_in_grid"
+            app:iconSpaceReserved="false"/>
+
+        <androidx.preference.SeekBarPreference
+            android:defaultValue="3"
+            android:dependency="key_show_shows_grid"
+            android:key="key_grid_size_number"
+            android:summary="@string/summary_grid_size"
+            android:title="@string/title_grid_size"
+            app:iconSpaceReserved="false"
+            android:max="9"
+            app:showSeekBarValue="true"
+            app:seekBarIncrement="1"/>
+
+        <androidx.preference.SwitchPreferenceCompat
+            app:key="prefs_show_next_episode_to_watch"
+            app:title="@string/show_next_episode_to_watch"
+            app:summary="@string/show_next_episode_to_watch_summary"
+            app:defaultValue="false"
+            app:iconSpaceReserved="false"/>
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="key_default_media_type"
+            android:summary="@string/show_shows_as_default_in_the_account_tab"
+            android:title="@string/default_media_type"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="key_sort_watching_by_date"
+            android:summary="@string/summary_sort_watching_by_date"
+            android:title="@string/title_sort_watching_by_date"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/title_data_usage"
+        app:iconSpaceReserved="false">
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="key_live_search"
+            android:title="@string/title_live_search"
+            app:iconSpaceReserved="false"/>
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="key_hq_images"
+            android:title="@string/load_hd_images"
+            app:iconSpaceReserved="false"
+            android:summary="@string/load_hd_image_summary"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/title_hide_tabs"
+        app:iconSpaceReserved="false">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="key_hide_movies_tab"
+            android:title="@string/title_hide_movies_tab"
+            app:iconSpaceReserved="false"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="key_hide_series_tab"
+            android:title="@string/title_hide_series_tab"
+            app:iconSpaceReserved="false"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="key_hide_saved_tab"
+            android:title="@string/title_hide_saved_tab"
+            app:iconSpaceReserved="false"/>
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="key_hide_account_tab"
+            android:title="@string/hide_the_account_tab"
+            app:iconSpaceReserved="false"/>
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="key_hide_account_tkt_tab"
+            android:title="@string/hide_the_account_tab_tkt"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="key_advanced"
+        android:title="@string/advanced"
+        app:initialExpandedChildrenCount="0"
+        app:iconSpaceReserved="false">
+
+        <EditTextPreference
+            android:key="key_api_language"
+            android:title="@string/title_api_language"
+            android:summary="@string/summary_api_language"
+            app:iconSpaceReserved="false"/>
+
+        <EditTextPreference
+            android:key="key_api_region"
+            android:title="@string/title_api_region"
+            android:summary="@string/summary_api_region"
+            app:iconSpaceReserved="false"/>
+
+        <EditTextPreference
+            android:key="key_api_timezone"
+            android:title="@string/title_api_timezone"
+            android:summary="@string/summary_api_timezone"
+            app:iconSpaceReserved="false"/>
+
+        <EditTextPreference
+            android:key="key_search_engine"
+            android:title="@string/search_engine"
+            android:summary="@string/search_engine_key_summary"
+            app:iconSpaceReserved="false"/>
+
+        <EditTextPreference
+            android:key="omdb_api_key"
+            android:title="@string/omdb_api_key"
+            android:summary="@string/omdb_api_key_summary"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/experimental"
+        app:iconSpaceReserved="false">
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="dynamic_color_details_activity"
+            android:title="@string/dynamic_color_preference_title"
+            android:summary="@string/dynamic_color_preference_summary"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/other"
+        app:iconSpaceReserved="false">
+
+        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="key_amoled_theme"
+            android:title="@string/amoled_theme"
+            android:summary="@string/amoled_theme_summary"
+            app:iconSpaceReserved="false"/>
+
+        <Preference android:title="@string/about_movie_db"
+            android:summary="@string/source_code_faq_bug_report"
+            app:iconSpaceReserved="false"
+            android:key="about_key"/>
+
+        <Preference android:title="@string/donate"
+            android:summary="@string/donate_desc"
+            app:iconSpaceReserved="false"
+            android:key="donate_key"/>
+
+        <Preference
+            android:title="@string/privacy_policy"
+            app:iconSpaceReserved="false"
+            android:key="privacy_key"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/attribution"
+        app:iconSpaceReserved="false"
+        android:layout="@layout/attribution_layout">
+
+        <Preference
+            android:summary="@string/text_tmdb_credits"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+</PreferenceScreen>

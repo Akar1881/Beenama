@@ -1,0 +1,74 @@
+<!--
+  ~     This file is part of "Beenama" formerly Movie DB. <https://github.com/Akar1881/MovieDB>
+  ~     forked from <https://notabug.org/nvb/MovieDB>
+  ~
+  ~     Copyright (C) 2024  Akar1881 <https://github.com/Akar1881>
+  ~
+  ~     Beenama is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Beenama is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with "Beenama".  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <color name="color_70">#99FFFFFF</color>
+    <color name="dividerColor">#E0E0E0</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="shimmer_color">#dddddd</color>
+    <color name="colorBackground">#234766</color>
+    <color name="md_theme_primary">#37618E</color>
+    <color name="md_theme_onPrimary">#FFFFFF</color>
+    <color name="md_theme_primaryContainer">#D2E4FF</color>
+    <color name="md_theme_onPrimaryContainer">#001D36</color>
+    <color name="md_theme_secondary">#35618E</color>
+    <color name="md_theme_onSecondary">#FFFFFF</color>
+    <color name="md_theme_secondaryContainer">#D1E4FF</color>
+    <color name="md_theme_onSecondaryContainer">#001D36</color>
+    <color name="md_theme_tertiary">#29638A</color>
+    <color name="md_theme_onTertiary">#FFFFFF</color>
+    <color name="md_theme_tertiaryContainer">#CBE6FF</color>
+    <color name="md_theme_onTertiaryContainer">#001E30</color>
+    <color name="md_theme_error">#BA1A1A</color>
+    <color name="md_theme_onError">#FFFFFF</color>
+    <color name="md_theme_errorContainer">#FFDAD6</color>
+    <color name="md_theme_onErrorContainer">#410002</color>
+    <color name="md_theme_background">#F8F9FF</color>
+    <color name="md_theme_onBackground">#191C20</color>
+    <color name="md_theme_surface">#F8F9FF</color>
+    <color name="md_theme_onSurface">#191C20</color>
+    <color name="md_theme_surfaceVariant">#DFE2EB</color>
+    <color name="md_theme_onSurfaceVariant">#43474E</color>
+    <color name="md_theme_outline">#73777F</color>
+    <color name="md_theme_outlineVariant">#C3C6CF</color>
+    <color name="md_theme_inverseSurface">#2E3135</color>
+    <color name="md_theme_inverseOnSurface">#EFF0F7</color>
+    <color name="md_theme_inversePrimary">#A1CAFD</color>
+    <color name="md_theme_primaryFixed">#D2E4FF</color>
+    <color name="md_theme_onPrimaryFixed">#001D36</color>
+    <color name="md_theme_primaryFixedDim">#A1CAFD</color>
+    <color name="md_theme_onPrimaryFixedVariant">#1A4975</color>
+    <color name="md_theme_secondaryFixed">#D1E4FF</color>
+    <color name="md_theme_onSecondaryFixed">#001D36</color>
+    <color name="md_theme_secondaryFixedDim">#A0CAFD</color>
+    <color name="md_theme_onSecondaryFixedVariant">#194975</color>
+    <color name="md_theme_tertiaryFixed">#CBE6FF</color>
+    <color name="md_theme_onTertiaryFixed">#001E30</color>
+    <color name="md_theme_tertiaryFixedDim">#97CCF8</color>
+    <color name="md_theme_onTertiaryFixedVariant">#004B71</color>
+    <color name="md_theme_surfaceDim">#D8DAE0</color>
+    <color name="md_theme_surfaceBright">#F8F9FF</color>
+    <color name="md_theme_surfaceContainerLowest">#FFFFFF</color>
+    <color name="md_theme_surfaceContainerLow">#F2F3FA</color>
+    <color name="md_theme_surfaceContainer">#ECEEF4</color>
+    <color name="md_theme_surfaceContainerHigh">#E6E8EE</color>
+    <color name="md_theme_surfaceContainerHighest">#E1E2E8</color>
+    <color name="collection_poster_foreground">#B3FFFFFF</color>
+</resources>

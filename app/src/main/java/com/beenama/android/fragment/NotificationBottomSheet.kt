@@ -1,0 +1,147 @@
+/*
+ *     This file is part of "Beenama" formerly Movie DB. <https://github.com/Akar1881/MovieDB>
+ *     forked from <https://notabug.org/nvb/MovieDB>
+ *
+ *     Copyright (C) 2024  Akar1881 <https://github.com/Akar1881>
+ *
+ *     Beenama is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     Beenama is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with "Beenama".  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+package com.beenama.android.fragment
+
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.beenama.android.R
+import com.beenama.android.adapter.NotificationAdapter
+import com.beenama.android.databinding.FragmentNotificationBottomSheetBinding
+import com.beenama.android.helper.NotificationDateUtil
+import com.beenama.android.helper.NotificationDatabaseHelper
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
+
+class NotificationBottomSheet : BottomSheetDialogFragment() {
+
+    private var _binding: FragmentNotificationBottomSheetBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var adapter: NotificationAdapter
+    private lateinit var dbHelper: NotificationDatabaseHelper
+
+    override fun onStart() {
+        super.onStart()
+        val bottomSheet = dialog?.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+        bottomSheet?.let {
+            val behavior = BottomSheetBehavior.from(it)
+            behavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentNotificationBottomSheetBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        dbHelper = NotificationDatabaseHelper(requireContext())
+        val allNotifications = dbHelper.getAllNotifications().toMutableList()
+        val (pastAndPresent, upcoming) = allNotifications.partition {
+            val notificationDate = NotificationDateUtil.parseDate(it.date)
+            notificationDate?.before(Date()) ?: true
+        }
+
+        val sortedPastAndPresent = pastAndPresent.sortedByDescending {
+            NotificationDateUtil.parseDate(it.date)
+        }
+
+        val sortedUpcoming = upcoming.sortedBy {
+            NotificationDateUtil.parseDate(it.date)
+        }
+
+        val notifications = sortedPastAndPresent.toMutableList()
+
+        if (notifications.isEmpty()) {
+            binding.notificationRecyclerView.visibility = View.GONE
+            binding.emptyView.visibility = View.VISIBLE
+        } else {
+            binding.notificationRecyclerView.visibility = View.VISIBLE
+            binding.emptyView.visibility = View.GONE
+        }
+
+        adapter = NotificationAdapter(notifications)
+        binding.notificationRecyclerView.layoutManager = LinearLayoutManager(context)
+        binding.notificationRecyclerView.adapter = adapter
+
+        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.bindingAdapterPosition
+                val notification = adapter.getNotificationAt(position)
+                val notificationDate = NotificationDateUtil.parseDate(notification.date)
+                val today = Calendar.getInstance().time
+
+                if (notificationDate != null && notificationDate.after(today)) {
+                    Toast.makeText(context,
+                        getString(R.string.cannot_delete_upcoming_notifications), Toast.LENGTH_SHORT).show()
+                    adapter.notifyItemChanged(position)
+                } else {
+                    dbHelper.deleteNotification(notification.id)
+                    adapter.removeItem(position)
+                }
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
+        itemTouchHelper.attachToRecyclerView(binding.notificationRecyclerView)
+
+        if (sortedUpcoming.isNotEmpty()) {
+            binding.showUpcomingButton.visibility = View.VISIBLE
+            binding.showUpcomingButton.setOnClickListener {
+                binding.notificationRecyclerView.visibility = View.VISIBLE
+                binding.emptyView.visibility = View.GONE
+                adapter.showUpcomingNotifications(sortedUpcoming.toMutableList())
+                binding.showUpcomingButton.visibility = View.GONE
+            }
+        } else {
+            binding.showUpcomingButton.visibility = View.GONE
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
+

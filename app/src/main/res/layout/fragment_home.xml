@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~     This file is part of "Beenama" formerly Movie DB. <https://github.com/Akar1881/MovieDB>
+  ~     forked from <https://notabug.org/nvb/MovieDB>
+  ~
+  ~     Copyright (C) 2024  Akar1881 <https://github.com/Akar1881>
+  ~
+  ~     Beenama is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Beenama is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with "Beenama".  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.beenama.android.fragment.HomeFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.search.SearchBar
+            android:id="@+id/searchbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/search_movie_show"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/trendingViewPager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:minHeight="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@id/searchbar"/>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerFrameLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="100dp"
+            android:visibility="gone"
+            android:layout_below="@id/searchbar"
+            app:shimmer_duration="700">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <include layout="@layout/show_skeleton" />
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <RelativeLayout
+          android:id="@+id/nowPlayingLayout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="16dp"
+          android:layout_below="@id/trendingViewPager">
+
+            <TextView
+                android:id="@+id/nowPlaying"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:text="@string/now_playing" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/nowPlayingMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                app:icon="@drawable/ic_double_forward"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/more"
+                style="@style/Widget.Material3.Button.IconButton" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/nowPlayingRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nowPlayingLayout"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            android:clipToPadding="false"
+            android:minHeight="230dp"
+            android:scrollbars="none" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerFrameLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="230dp"
+            android:visibility="gone"
+            android:layout_below="@id/nowPlayingLayout"
+            app:shimmer_duration="700">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <include layout="@layout/show_skeleton" />
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/airingTodayLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_below="@id/nowPlayingRecyclerView">
+
+            <TextView
+                android:id="@+id/airingToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:text="@string/airing_today" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/airingTodayMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                app:icon="@drawable/ic_double_forward"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/more"
+                style="@style/Widget.Material3.Button.IconButton"/>
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/nowPlayingTVRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/airingTodayLayout"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            android:clipToPadding="false"
+            android:minHeight="230dp"
+            android:scrollbars="none" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerFrameLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="230dp"
+            android:visibility="gone"
+            android:layout_below="@id/airingTodayLayout"
+            app:shimmer_duration="700">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <include layout="@layout/show_skeleton" />
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/upcomingMovieLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_below="@id/nowPlayingTVRecyclerView">
+
+            <TextView
+                android:id="@+id/upcomingMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/upcoming" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/upcomingMovieMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                app:icon="@drawable/ic_double_forward"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/more"
+                style="@style/Widget.Material3.Button.IconButton"/>
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/upcomingMovieRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/upcomingMovieLayout"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            android:clipToPadding="false"
+            android:minHeight="230dp"
+            android:scrollbars="none" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerFrameLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:minHeight="230dp"
+            android:layout_below="@id/upcomingMovieLayout"
+            app:shimmer_duration="700">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <include layout="@layout/show_skeleton" />
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/upcomingTvLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_below="@id/upcomingMovieRecyclerView">
+
+            <TextView
+                android:id="@+id/upcomingTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_centerVertical="true"
+                android:text="@string/on_the_air" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/upcomingTvMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                app:icon="@drawable/ic_double_forward"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/more"
+                style="@style/Widget.Material3.Button.IconButton"/>
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/upcomingTVRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:minHeight="230dp"
+            android:layout_below="@id/upcomingTvLayout"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            android:scrollbars="none" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerFrameLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:minHeight="230dp"
+            android:layout_below="@id/upcomingTvLayout"
+            app:shimmer_duration="700">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+                <include layout="@layout/show_skeleton" />
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

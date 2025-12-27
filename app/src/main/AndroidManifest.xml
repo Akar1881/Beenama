@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~     This file is part of "Beenama" formerly Movie DB. <https://github.com/Akar1881/MovieDB>
+  ~     forked from <https://notabug.org/nvb/MovieDB>
+  ~
+  ~     Copyright (C) 2024  Akar1881 <https://github.com/Akar1881>
+  ~
+  ~     Beenama is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     Beenama is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with "Beenama".  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+<!--    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />-->
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:requestLegacyExternalStorage="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.MovieDB.Splash"
+        android:name=".App"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="s">
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="callback"
+                    android:scheme="com.beenama.android" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="callback"
+                    android:scheme="trakt.beenama.showcase" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.ShowMoreActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".activity.DeepLinkActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https"/>
+                <data android:host="www.themoviedb.org"/>
+                <data android:pathPrefix="/movie/"/>
+                <data android:scheme="https"/>
+                <data android:host="www.themoviedb.org"/>
+                <data android:pathPrefix="/tv/"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https"/>
+                <data android:host="www.imdb.com"/>
+                <data android:pathPrefix="/title/"/>
+                <data android:scheme="https"/>
+                <data android:host="m.imdb.com"/>
+                <data android:pathPrefix="/title/"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.ExternalSearchActivity"
+            android:theme="@style/AppTheme"
+            android:exported="true"
+            android:label="@string/search_title_ext"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.DetailActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".activity.CastActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".activity.SettingsActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".activity.FilterActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".activity.ExportActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".activity.ImportActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".activity.TVSeasonDetailsActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".activity.ListItemActivityTmdb"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".activity.MovieImageActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".activity.PersonActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".activity.ListItemActivityTkt"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".activity.ExportTktDbActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity
+            android:name=".activity.CsvImportActivity"
+            android:label="Import CSV"
+            android:parentActivityName=".activity.MainActivity"
+            android:theme="@style/AppTheme" />
+
+        <service
+            android:name=".service.ImportService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <receiver
+            android:name=".NotificationReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".BootCompletedReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".service.TraktSyncService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <!-- Upcoming Movies/Shows Widget -->
+        <receiver
+            android:name=".widget.UpcomingWidgetProvider"
+            android:label="@string/upcoming"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.intent.action.CONFIGURATION_CHANGED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/upcoming_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".widget.UpcomingWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            android:exported="false" />
+        <!-- End of Upcoming Movies/Shows Widget -->
+
+        <!-- Up Next Widget -->
+        <receiver
+            android:name=".widget.UpNextWidgetProvider"
+            android:label="@string/up_next"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.beenama.android.widget.action.MARK_AS_WATCHED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/up_next_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".widget.UpNextWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"
+            android:exported="false" />
+        <!-- End of Up Next Widget -->
+
+        <activity android:name=".activity.UpdateActivity"
+            android:theme="@style/Theme.Transparent">
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+
+    <queries>
+        <intent>
+            <action android:name="android.support.customtabs.action.CustomTabsService" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
+</manifest>
