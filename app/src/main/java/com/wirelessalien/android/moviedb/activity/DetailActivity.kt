@@ -474,6 +474,18 @@ class DetailActivity : BaseActivity(), ListTmdbBottomSheetFragment.OnListCreated
             }
         }
 
+        // Add Watch Button logic
+        binding.fabSave.setOnLongClickListener {
+            val intent = Intent(this, WatchActivity::class.java).apply {
+                putExtra("title", movieTitle ?: showName)
+                putExtra("isMovie", isMovie)
+                putExtra("year", movieYear?.toIntOrNull() ?: 0)
+            }
+            startActivity(intent)
+            Toast.makeText(this, "Searching links...", Toast.LENGTH_SHORT).show()
+            true
+        }
+
         binding.shimmerFrameLayout1.visibility = View.VISIBLE
         binding.shimmerFrameLayout1.startShimmer()
 

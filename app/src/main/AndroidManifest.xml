@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~     This file is part of "Beenama" formerly Movie DB. <https://github.com/Akar1881/MovieDB>
+  ~     This file is part of "ShowCase" formerly Movie DB. <https://github.com/WirelessAlien/MovieDB>
   ~     forked from <https://notabug.org/nvb/MovieDB>
   ~
-  ~     Copyright (C) 2024  Akar1881 <https://github.com/Akar1881>
+  ~     Copyright (C) 2024  WirelessAlien <https://github.com/WirelessAlien>
   ~
-  ~     Beenama is free software: you can redistribute it and/or modify
+  ~     ShowCase is free software: you can redistribute it and/or modify
   ~     it under the terms of the GNU General Public License as published by
   ~     the Free Software Foundation, either version 3 of the License, or
   ~     (at your option) any later version.
   ~
-  ~     Beenama is distributed in the hope that it will be useful,
+  ~     ShowCase is distributed in the hope that it will be useful,
   ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
   ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   ~     GNU General Public License for more details.
   ~
   ~     You should have received a copy of the GNU General Public License
-  ~     along with "Beenama".  If not, see <https://www.gnu.org/licenses/>.
+  ~     along with "ShowCase".  If not, see <https://www.gnu.org/licenses/>.
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -71,7 +71,7 @@
 
                 <data
                     android:host="callback"
-                    android:scheme="com.beenama.android" />
+                    android:scheme="com.wirelessalien.android.moviedb" />
             </intent-filter>
 
             <intent-filter>
@@ -82,7 +82,7 @@
 
                 <data
                     android:host="callback"
-                    android:scheme="trakt.beenama.showcase" />
+                    android:scheme="trakt.wirelessalien.showcase" />
             </intent-filter>
         </activity>
 
@@ -134,6 +134,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.WatchActivity"
+            android:theme="@style/Theme.MovieDB"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
 
         <activity android:name=".activity.DetailActivity"
@@ -242,7 +248,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.beenama.android.widget.action.MARK_AS_WATCHED" />
+                <action android:name="com.wirelessalien.android.moviedb.widget.action.MARK_AS_WATCHED" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"

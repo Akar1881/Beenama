@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~     This file is part of "Beenama" formerly Movie DB. <https://github.com/Akar1881/MovieDB>
+  ~     This file is part of "ShowCase" formerly Movie DB. <https://github.com/WirelessAlien/MovieDB>
   ~     forked from <https://notabug.org/nvb/MovieDB>
   ~
-  ~     Copyright (C) 2024  Akar1881 <https://github.com/Akar1881>
+  ~     Copyright (C) 2024  WirelessAlien <https://github.com/WirelessAlien>
   ~
-  ~     Beenama is free software: you can redistribute it and/or modify
+  ~     ShowCase is free software: you can redistribute it and/or modify
   ~     it under the terms of the GNU General Public License as published by
   ~     the Free Software Foundation, either version 3 of the License, or
   ~     (at your option) any later version.
   ~
-  ~     Beenama is distributed in the hope that it will be useful,
+  ~     ShowCase is distributed in the hope that it will be useful,
   ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
   ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   ~     GNU General Public License for more details.
   ~
   ~     You should have received a copy of the GNU General Public License
-  ~     along with "Beenama".  If not, see <https://www.gnu.org/licenses/>.
+  ~     along with "ShowCase".  If not, see <https://www.gnu.org/licenses/>.
   -->
 
 <resources>
@@ -157,7 +157,7 @@
     <string name="fetching_item_of">Fetching item %1$d of %2$d</string>
     <string name="source_code">Source Code</string>
     <string name="license">License</string>
-    <string name="author_beenama" translatable="false">Author: Abhilash</string>
+    <string name="author_wirelessalien" translatable="false">Author: Abhilash</string>
     <string name="report_an_issue">Report an Issue</string>
     <string name="episodesL">Episodes</string>
     <string name="marked_episodes_as_watched">Marked %1$d episodes as watched</string>
@@ -643,7 +643,7 @@
 
     <string name="just_watch_attribution">This app uses JustWatch data to show streaming service info.</string>
 
-    <string name="share">Share Beenama</string>
+    <string name="share">Share ShowCase</string>
     <string name="donate">Donate</string>
     <string name="attribution">Attribution</string>
     <string name="about_movie_db">About</string>
@@ -770,4 +770,7 @@
     <string name="runtime">Runtime</string>
     <string name="popularity">Popularity</string>
     <string name="language">Language</string>
+    <string name="watch">Watch</string>
+    <string name="no_streaming_links">No streaming links found</string>
+    <string name="searching_links">Searching for links...</string>
 </resources>

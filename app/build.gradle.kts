@@ -1,21 +1,21 @@
 /*
- *     This file is part of "Beenama" formerly Movie DB. <https://github.com/Akar1881/MovieDB>
+ *     This file is part of "ShowCase" formerly Movie DB. <https://github.com/WirelessAlien/MovieDB>
  *     forked from <https://notabug.org/nvb/MovieDB>
  *
- *     Copyright (C) 2024  Akar1881 <https://github.com/Akar1881>
+ *     Copyright (C) 2024  WirelessAlien <https://github.com/WirelessAlien>
  *
- *     Beenama is free software: you can redistribute it and/or modify
+ *     ShowCase is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     (at your option) any later version.
  *
- *     Beenama is distributed in the hope that it will be useful,
+ *     ShowCase is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with "Beenama".  If not, see <https://www.gnu.org/licenses/>.
+ *     along with "ShowCase".  If not, see <https://www.gnu.org/licenses/>.
  */
 
 plugins {
@@ -26,24 +26,24 @@ plugins {
 val omdbApiKey = System.getenv("OMDB_API_KEY") ?: ""
 
 android {
-    namespace = "com.beenama.android"
+    namespace = "com.wirelessalien.android.moviedb"
     compileSdk = 35
 
     flavorDimensions.add("version")
     productFlavors {
         create("foss") {
             dimension = "version"
-            applicationId = "com.beenama.android"
+            applicationId = "com.wirelessalien.android.moviedb"
         }
         create("full") {
             dimension = "version"
-            applicationId = "com.beenama.android.full"
+            applicationId = "com.wirelessalien.android.moviedb.full"
             versionNameSuffix = "-full"
         }
     }
 
     defaultConfig {
-        applicationId = "com.beenama.android"
+        applicationId = "com.wirelessalien.android.moviedb"
         minSdk = 24
         targetSdk = 35
         versionCode = 32
@@ -122,6 +122,11 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.squareup.picasso:picasso:2.8")
     implementation("com.squareup.okhttp3:okhttp:5.1.0")
+
+    // ExoPlayer
+    implementation("androidx.media3:media3-exoplayer:1.5.1")
+    implementation("androidx.media3:media3-ui:1.5.1")
+    implementation("androidx.media3:media3-common:1.5.1")
 
     //facebook shimmer
     implementation("com.facebook.shimmer:shimmer:0.5.0")

@@ -55,7 +55,7 @@ Yes, You can opt-in to receive app updates directly within the application throu
 The app offers several sync providers to manage your data, each with different features. Here are our recommendations:
 
 *   **Local Only (Recommended):**
-    This option provides the most features, storing all your data directly on your device. It's fast, private, and gives you access to all functionalities, including detailed episode tracking. You can choose to use the **Beenama Plus** variant of the app to backup local database to Google Drive.
+    This option provides the most features, storing all your data directly on your device. It's fast, private, and gives you access to all functionalities, including detailed episode tracking. You can choose to use the **ShowCase Plus** variant of the app to backup local database to Google Drive.
 
 *   **Local with TMDB (Recommended):**
     This is a great hybrid approach. You can use all the local features for detailed tracking while syncing your **watchlist, favourites, ratings, and custom lists** with your TMDB account.

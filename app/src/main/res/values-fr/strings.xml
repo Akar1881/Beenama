@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~     This file is part of "Beenama" formerly Movie DB. <https://github.com/Akar1881/MovieDB>
+  ~     This file is part of "ShowCase" formerly Movie DB. <https://github.com/WirelessAlien/MovieDB>
   ~     forked from <https://notabug.org/nvb/MovieDB>
   ~
-  ~     Copyright (C) 2024  Akar1881 <https://github.com/Akar1881>
+  ~     Copyright (C) 2024  WirelessAlien <https://github.com/WirelessAlien>
   ~
-  ~     Beenama is free software: you can redistribute it and/or modify
+  ~     ShowCase is free software: you can redistribute it and/or modify
   ~     it under the terms of the GNU General Public License as published by
   ~     the Free Software Foundation, either version 3 of the License, or
   ~     (at your option) any later version.
   ~
-  ~     Beenama is distributed in the hope that it will be useful,
+  ~     ShowCase is distributed in the hope that it will be useful,
   ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
   ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   ~     GNU General Public License for more details.
   ~
   ~     You should have received a copy of the GNU General Public License
-  ~     along with "Beenama".  If not, see <https://www.gnu.org/licenses/>.
+  ~     along with "ShowCase".  If not, see <https://www.gnu.org/licenses/>.
   --><resources>
     <!-- MainActivity -->
 
@@ -235,7 +235,7 @@
     <string name="tv_show">Série</string>
     <string name="type">Type</string>
     <string name="just_watch_attribution">Cette application utilise les données de JustWatch pour afficher les informations « Où regarder ? ».</string>
-    <string name="share">Partager Beenama</string>
+    <string name="share">Partager ShowCase</string>
     <string name="donate">Faire un don</string>
     <string name="attribution">Attribution</string>
     <string name="about_movie_db">À propos</string>
