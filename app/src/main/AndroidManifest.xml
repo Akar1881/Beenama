@@ -137,7 +137,7 @@
         </activity>
 
         <activity android:name=".activity.WatchActivity"
-            android:theme="@style/Theme.MovieDB"
+            android:theme="@style/AppTheme"
             android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden|screenSize">
         </activity>
