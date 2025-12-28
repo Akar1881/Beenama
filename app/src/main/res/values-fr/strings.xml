@@ -646,7 +646,7 @@
     <string name="nested_sorting_explanation">Une fois activée, votre bibliothèque multimédia sera d\'abord triée par catégorie (par exemple, En cours de visionnage, Visionnés), puis triée à nouveau selon l\'autre option que vous avez sélectionnée (comme Date de sortie ou Meilleure note).</string>
     <string name="same_as_start_date">Identique à la date de début</string>
     <string name="same_as_end_date">Identique à la date de fin</string>
-    <string name="rating_format">Note : %.1f/%s</string>
+    <string name="rating_format">Note : %1$.1f/%2$s</string>
     <string name="drive_access_failed">Impossible d\'accéder à Google Drive</string>
     <string name="upload_in_progress">Téléchargement</string>
     <string name="could_not_import_backup">Impossible d\'importer la sauvegarde : %1$s</string>

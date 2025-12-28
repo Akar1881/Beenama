@@ -175,7 +175,7 @@
     <string name="tomorrow">Tomorrow</string>
     <string name="later">Later</string>
     <string name="episode_number_format" translatable="false">(%d)</string>
-    <string name="rv_rating_format" translatable="false">%.1f/%d</string>
+    <string name="rv_rating_format" translatable="false">%1$.1f/%2$d</string>
     <string name="rating_na">N/A</string>
     <string name="export_directory_not_selected">Export directory not selected</string>
     <string name="export_in_progress">Export in progress</string>
@@ -753,7 +753,7 @@
     <string name="certification_with_country" translatable="false">%1$s (%2$s)</string>
     <string name="items_count">Items: %1$d</string>
     <string name="refresh">Refresh</string>
-    <string name="rating_format">Rating: %.1f/%s</string>
+    <string name="rating_format">Rating: %1$.1f/%2$s</string>
     <string name="drive_access_failed">Could not access Google Drive</string>
     <string name="upload_in_progress">Uploading</string>
     <string name="could_not_import_backup">Could not import backup: %1$s</string>
