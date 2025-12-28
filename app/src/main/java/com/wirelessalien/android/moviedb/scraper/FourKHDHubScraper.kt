@@ -6,17 +6,11 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import okhttp3.*
 import okhttp3.Headers.Companion.toHeaders
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.RequestBody.Companion.toRequestBody
 import org.jsoup.Jsoup
-import org.jsoup.nodes.Document
-import org.jsoup.nodes.Element
 import java.net.URL
 import java.net.URLDecoder
 import java.net.URLEncoder
 import java.util.*
-import javax.crypto.Cipher
-import javax.crypto.spec.SecretKeySpec
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -275,10 +269,10 @@ class FourKHDHubScraper(
     
     // Get domains
     private suspend fun getDomains(): Map<String, String>? {
-        cacheMutex.withLock {
-            if (domainsCache != null) return domainsCache
-            
-            return try {
+        return try {
+            cacheMutex.withLock {
+                if (domainsCache != null) return@withLock domainsCache
+                
                 val response = makeRequest(DOMAINS_URL)
                 if (response.isSuccessful) {
                     val json = response.body?.string() ?: ""
@@ -288,10 +282,10 @@ class FourKHDHubScraper(
                 } else {
                     null
                 }
-            } catch (e: Exception) {
-                Log.e(TAG, "Failed to get domains: ${e.message}")
-                null
             }
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to get domains: ${e.message}")
+            null
         }
     }
     
@@ -397,7 +391,7 @@ class FourKHDHubScraper(
             val poster = doc.select("meta[property=\"og:image\"]").attr("content").takeIf { it.isNotEmpty() }
             
             val tags = doc.select("div.mt-2 span.badge").map { it.text() }
-            val year = doc.select("div.mt-2 span").first()?.text()
+            val year = doc.select("div.mt-2 span").firstOrNull()?.text()
                 ?.replace("[^0-9]".toRegex(), "")
                 ?.toIntOrNull()
             
@@ -579,7 +573,7 @@ class FourKHDHubScraper(
                     )
                 )
             }
-            link.matches(".*\\.m(ov|p4|kv)$|.*\\.avi$".toRegex(RegexOption.IGNORE_CASE)) -> {
+            link.matches(".*\\.m(ov|p4|kv)\$|.*\\.avi\$".toRegex(RegexOption.IGNORE_CASE)) -> {
                 val fileName = getFilenameFromUrl(link) ?: try {
                     URL(link).path.substringAfterLast("/").substringBeforeLast(".")
                         .replace("[._]".toRegex(), " ")
@@ -640,11 +634,11 @@ class FourKHDHubScraper(
             doc2.select(".card").forEach { card ->
                 val header = card.select("div.card-header").text()
                     .takeIf { it.isNotEmpty() }
-                    ?: doc2.select("div.card-header").first()?.text() ?: ""
+                    ?: doc2.select("div.card-header").firstOrNull()?.text() ?: ""
                 
                 val size = card.select("i#size").text()
                     .takeIf { it.isNotEmpty() }
-                    ?: doc2.select("i#size").first()?.text() ?: ""
+                    ?: doc2.select("i#size").firstOrNull()?.text() ?: ""
                 
                 val quality = getIndexQuality(header)
                 val headerDetails = cleanTitle(header)
@@ -690,8 +684,8 @@ class FourKHDHubScraper(
                     }
                 }
                 
-                val size = doc2.select("i#size").first()?.text() ?: ""
-                val header = doc2.select("div.card-header").first()?.text() ?: ""
+                val size = doc2.select("i#size").firstOrNull()?.text() ?: ""
+                val header = doc2.select("div.card-header").firstOrNull()?.text() ?: ""
                 val quality = getIndexQuality(header)
                 val headerDetails = cleanTitle(header)
                 
@@ -995,8 +989,12 @@ class FourKHDHubScraper(
     ): List<StreamInfo> {
         val cacheKey = "4khdhub_resolved_urls_v1_${tmdbId}_$type${season?.let { "_s${it}e${episode ?: ""}" } ?: ""}"
         
-        val cached = cacheMutex.withLock {
-            resolvedUrlsCache[cacheKey]
+        val cached = try {
+            cacheMutex.withLock {
+                resolvedUrlsCache[cacheKey]
+            }
+        } catch (e: Exception) {
+            null
         }
         
         if (cached != null && cached.isNotEmpty()) {
@@ -1016,9 +1014,13 @@ class FourKHDHubScraper(
     
     // Clear cache
     fun clearCache() {
-        cacheMutex.withLock {
-            domainsCache = null
-            resolvedUrlsCache.clear()
+        try {
+            cacheMutex.withLock {
+                domainsCache = null
+                resolvedUrlsCache.clear()
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error clearing cache: ${e.message}")
         }
     }
     
