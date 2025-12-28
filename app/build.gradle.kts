@@ -127,6 +127,7 @@ dependencies {
     implementation("androidx.media3:media3-exoplayer:1.5.1")
     implementation("androidx.media3:media3-ui:1.5.1")
     implementation("androidx.media3:media3-common:1.5.1")
+    implementation("org.jsoup:jsoup:1.18.3")
 
     //facebook shimmer
     implementation("com.facebook.shimmer:shimmer:0.5.0")
