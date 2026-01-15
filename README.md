@@ -7,6 +7,8 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![TMDB](https://img.shields.io/badge/TMDB-01B4E4?style=for-the-badge&logo=themoviedatabase&logoColor=white)
 ![All Downloads](https://img.shields.io/github/downloads/Akar1881/Beenama/total?style=for-the-badge)
+
+
 بینەما کۆگایەک تایبەت بە فلم و زنجرەکان.
 
 سەرەتا بینەما کۆگایەکە هەموو داتای فلم و زنجیرەکانی تێدایە تەنانەت فلم و زنجیرەی گەورەکان (adult) بەڵام ئێمە هەوڵمان داوە زۆربەیان بکلۆک بکەین و هیچیان بەردەست نیە، بینەما داتاکان لە کۆگایەک دەهێنێت بەناوی (TMDB) دەتوانن ئەکاونتێک لەوێ دروست بکەن لە بینەما داخل ئەکاونتەکە ببن هەندێک فیوچەرتان بۆ ئەکرێتەوە پێویستی بە ئەکاونت هەیە وەکو لیستی (لیستی سەیرکردن، لیستی دڵخواز، یان هەر لێستێک کە بتەوێت).
