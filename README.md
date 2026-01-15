@@ -1,6 +1,6 @@
 # Beenama
 
-## 🛠 Tech Stack
+بەمانەی خوارەوە دروست کراوە:
 
 ![React Native](https://img.shields.io/badge/React%20Native-20232A?style=for-the-badge&logo=react)
 ![Expo](https://img.shields.io/badge/Expo-000000?style=for-the-badge&logo=expo)
@@ -96,4 +96,6 @@
 ئەم ئەپی بینەما دروست کراوە لەلایەن ئاکار ناسراو بە Akar1881.
 
 لەڕێگەی ئەم لێنکەوە تازەترین ڤێرژنی بینەما دابەزێنە بۆ ئاندرۆید
+
+
 [![Download Latest](https://img.shields.io/badge/Download-Latest-success?style=for-the-badge&logo=github)](https://github.com/Akar1881/Beenama/releases/latest)
