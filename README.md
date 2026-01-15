@@ -1,4 +1,12 @@
 # Beenama
+
+## 🛠 Tech Stack
+
+![React Native](https://img.shields.io/badge/React%20Native-20232A?style=for-the-badge&logo=react)
+![Expo](https://img.shields.io/badge/Expo-000000?style=for-the-badge&logo=expo)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![TMDB](https://img.shields.io/badge/TMDB-01B4E4?style=for-the-badge&logo=themoviedatabase&logoColor=white)
+![All Downloads](https://img.shields.io/github/downloads/Akar1881/Beenama/total?style=for-the-badge)
 بینەما کۆگایەک تایبەت بە فلم و زنجرەکان.
 
 سەرەتا بینەما کۆگایەکە هەموو داتای فلم و زنجیرەکانی تێدایە تەنانەت فلم و زنجیرەی گەورەکان (adult) بەڵام ئێمە هەوڵمان داوە زۆربەیان بکلۆک بکەین و هیچیان بەردەست نیە، بینەما داتاکان لە کۆگایەک دەهێنێت بەناوی (TMDB) دەتوانن ئەکاونتێک لەوێ دروست بکەن لە بینەما داخل ئەکاونتەکە ببن هەندێک فیوچەرتان بۆ ئەکرێتەوە پێویستی بە ئەکاونت هەیە وەکو لیستی (لیستی سەیرکردن، لیستی دڵخواز، یان هەر لێستێک کە بتەوێت).
@@ -86,4 +94,4 @@
 ئەم ئەپی بینەما دروست کراوە لەلایەن ئاکار ناسراو بە Akar1881.
 
 لەڕێگەی ئەم لێنکەوە تازەترین ڤێرژنی بینەما دابەزێنە بۆ ئاندرۆید
-DOWNLOAD
+[![Download Latest](https://img.shields.io/badge/Download-Latest-success?style=for-the-badge&logo=github)](https://github.com/Akar1881/Beenama/releases/latest)
