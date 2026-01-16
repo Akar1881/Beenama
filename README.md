@@ -99,3 +99,22 @@
 
 
 [![Download Latest](https://img.shields.io/badge/Download-Latest-success?style=for-the-badge&logo=github)](https://github.com/Akar1881/Beenama/releases/latest)
+
+هەرکێشەیەک هەبوو لەڕێگەی GITHUB ISSUE ئاگادارم بکەنەوە
+
+[![GitHub Issues](https://img.shields.io/github/issues/Akar1881/Beenama?style=for-the-badge)](https://github.com/Akar1881/Beenama/releases/download/1.0.0/beenama_1.0.0.apk)
+
+تەنها لەم سۆشیاڵ میدیایانە بەرپرسم
+
+<p align="center">
+  <a href="https://t.me/akar1881">
+    <img src="https://img.shields.io/badge/Telegram-akar1881-26A5E4?style=for-the-badge&logo=telegram&logoColor=white">
+  </a>
+  <a href="https://facebook.com/akar1881">
+    <img src="https://img.shields.io/badge/Facebook-akar1881-1877F2?style=for-the-badge&logo=facebook&logoColor=white">
+  </a>
+  <a href="https://discord.gg/YOUR_INVITE">
+    <img src="https://img.shields.io/badge/Discord-Join%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white">
+  </a>
+</p>
+
