@@ -118,3 +118,13 @@
   </a>
 </p>
 
+بینەما خۆی ویبسایت من کردم بە ئەپێک بۆ  ئێوە ئەمەش ویبسایتی بینەما تێلێگرامی بینەما
+
+<p align="center">
+  <a href="https://beenama.com">
+    <img src="https://img.shields.io/badge/Website-beenama.com-0A0A0A?style=for-the-badge&logo=google-chrome&logoColor=white">
+  </a>
+  <a href="https://t.me/beenamaa">
+    <img src="https://img.shields.io/badge/Telegram-@beenamaa-26A5E4?style=for-the-badge&logo=telegram&logoColor=white">
+  </a>
+</p>
